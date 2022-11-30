@@ -1,1 +1,0 @@
-# **Image Caption Generator**
