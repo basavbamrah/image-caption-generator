@@ -6,7 +6,7 @@ def index(request):
     
 
 def about(request):
-    return HttpResponse("This is the about page.")
+    return render(request, "about.html")
 def contact(request):
     return HttpResponse("This is the contact page.")
 
