@@ -1064,7 +1064,8 @@ Infos Style
 }
 
 .infos .main-content .left-image {
-  background-image: url(../images/left-infos.jpg);
+  /* background-image: url(../images/left-infos.jpg); */
+  /* background-image: url(../images/wide_blob.jpeg); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -1116,27 +1117,27 @@ Infos Style
 }
 
 .infos .main-content .marketing .fill {
-  width: 90%;
+  width: 60%;
 }
 
 .infos .main-content .digital .fill {
-  width: 80%;
+  width: 30%;
 }
 
 .infos .main-content .media .fill {
-  width: 95%;
+  width: 10%;
 }
 
 .infos .main-content .marketing span {
-  right: 10%;
+  right: 60%;
 }
 
 .infos .main-content .digital span {
-  right: 20%;
+  right: 0%;
 }
 
 .infos .main-content .media span {
-  right: 5%;
+  right: 0%;
 }
 
 .infos .main-content p.more-info {
@@ -1451,27 +1452,27 @@ Infos Style
 }
 
 .video-info .marketing .fill {
-  width: 90%;
+  width: 0%;
 }
 
 .video-info .digital .fill {
-  width: 80%;
+  width: 0%;
 }
 
 .video-info .media .fill {
-  width: 95%;
+  width: 0%;
 }
 
 .video-info .marketing span {
-  right: 10%;
+  right: 0%;
 }
 
 .video-info .digital span {
-  right: 20%;
+  right: 0%;
 }
 
 .video-info .media span {
-  right: 5%;
+  right: 0%;
 }
 
 /*
