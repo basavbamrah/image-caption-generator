@@ -11,5 +11,7 @@ def contact(request):
     return HttpResponse("This is the contact page.")
 def generate(request):
     return render(request, "generate.html")
+def faq(request):
+    return render(request, "faqs.html")
 
 # Path: imageCaptionGenerator/imageCaptionGenerator/urls.py
