@@ -20,6 +20,11 @@ from django.conf.urls.static import static
 # from . import settings
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import include
+
+
+
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.index, name="index"),
@@ -28,5 +33,6 @@ urlpatterns = [
     path("contact", views.contact, name="contact"),
     path("faqs", views.faq, name="faqs"),
     path("generate", views.generate, name="generate"),
+    path('generateCap/', include('generateCap.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
