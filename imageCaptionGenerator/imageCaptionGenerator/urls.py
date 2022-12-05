@@ -28,11 +28,11 @@ from django.conf.urls import include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.index, name="index"),
-    path("index", views.index, name="index"),
+    # path("index", views.index, name="index"),
     path("about", views.about, name="about"),
     path("contact", views.contact, name="contact"),
     path("faqs", views.faq, name="faqs"),
-    path("generate", views.generate, name="generate"),
+    # path("generate", views.generate, name="generate"),
     path('generateCap/', include('generateCap.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
