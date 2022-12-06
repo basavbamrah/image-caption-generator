@@ -13,13 +13,17 @@ It is an image caption generator using LSTM. The model is trained on the Flickr8
 8. Pickle
 9. PIL
 10. NLTK
-
+11. django
 ## **Usage**
 1. Clone the repository
 2. Download the Flickr8k dataset from [here](https://www.kaggle.com/shadabhussain/flickr8k)
 
 ## **Training**
 1. Run the `train.ipynb` file to train the model. The model will be saved in the `model` folder.
+2. Run python manage.py runserver to start the server.
+3. Open the browser 
+4. Go to generate caption and upload the image.
+5. The caption will be generated.
 
 
 Created by [Basav Bamrah]
