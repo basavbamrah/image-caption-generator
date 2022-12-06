@@ -175,19 +175,14 @@
                     </div>
                 </div>
             </div>
+            
             <div class="upload">
                 <h3>Upload image</h3> <br>
-                <form action="generate/" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <!-- {{ form.as_p }} -->
-                    <input type="file" name="image" id="image" accept="image/*" required>
-                    <!-- <input type="file" id="myFile"><br><br> -->
-                    <br>
-                    <h3>Caption for image: {{cap}} </h3>
-                    <br>
-                    <input type="submit" value="Generate Caption">
-                <!-- <input type="submit" value="submit" > -->
-                </form>
+                <!-- <img src= { }alt="" style="max-width: 100px;"> -->
+                <img src="/imageCaptionGenerator/media/images/upload.jpg" alt="", style="max-width:500px">
+                <!-- {{img}} -->
+                <h3>Caption for image: {{caption}} </h3>
+
             </div>
 
 

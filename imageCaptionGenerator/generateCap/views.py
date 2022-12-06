@@ -21,24 +21,32 @@ def index(request):
 
 def generate(request):
     '''' Accepts the image and returns the caption'''
+    path=''
     if request.method == "POST":
         form = ImageForm(request.POST, request.FILES)
         print('yes')
         print(form.is_valid())
         if form.is_valid():
             print('yes')
+            # print(form['image'])
             form.save()
             path = form.cleaned_data['image']
+            print(path)
+            os.rename(settings.MEDIA_ROOT + '/images/' + str(path),
+                      settings.MEDIA_ROOT + '/images/' + 'upload' + '.jpg')
+            path= settings.MEDIA_ROOT + '/images/' + 'upload' + '.jpg'
+            print(path)
             cap=pred(path)
+            print(cap)
             # return HttpResponse("Image uploaded successfully.")
 
-    return render(request, "generateCap/index.html")
+    return render(request, "generateCap/generate.html", {'caption':cap,'img':path})
 
 def extract_feature(path,model):
     # print(path)
     img=Image.open(path)
 
-    img=img.resize((300,300))
+    img=img.resize((400,400))
     img=np.array(img)
     if img.shape[2]==4:
         img=img[...,:3]
@@ -59,13 +67,13 @@ def test_generate_caption(model, tokenizer, feature, max_len):
     in_text='start'
     print(max_len)
     for i in range(max_len):
-        print(i)
+        # print(i)
         sequence=tokenizer.texts_to_sequences([in_text])[0]
         sequence=pad_sequences([sequence],maxlen=max_len)
         prediction=model.predict([feature,sequence],verbose=0)
         prediction=np.argmax(prediction)
         word=test_word_of_id(prediction,tokenizer)
-        print(word)
+        # print(word)
         if word is None:
             print("True")
             break
@@ -79,8 +87,8 @@ def test_generate_caption(model, tokenizer, feature, max_len):
 def pred(path):
     # print(path)
 
-    path = settings.MEDIA_ROOT + '/images/' + str(path)
-    print(path)
+    # path = settings.MEDIA_ROOT + '/images/' + str(path)
+    # print(path)
     max_len=35
     tokenizer = joblib.load(settings.MEDIA_ROOT +'/models/tokenizer.joblib')
     model_lstm = load_model(settings.MEDIA_ROOT + '/models/model_lstm.h5')
@@ -92,6 +100,10 @@ def pred(path):
     print("*******features done***********")
     image=Image.open(path)
     caption=test_generate_caption(model_lstm,tokenizer,test_feature,33)
+    caption=caption.split()
+    caption=caption[1:-1]
+    caption=' '.join(caption)
+
     print(caption)
     # plt.imshow(image)
     return caption
